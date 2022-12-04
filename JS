@@ -1,0 +1,12 @@
+# Examples in Each Chapter
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+# Java Syntax
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
