@@ -1,0 +1,39 @@
+<#====
+#>
+
+# Variable declaration
+$Start_Time       =       Get-Date -Format T
+$Message          =       Read-Host -Prompt “Nhap tin nhan can gui o day”      
+$ComputerName     =       Read-Host -Prompt “Nhap Computer name hoac IP may can gui o day”    
+$Time             =       Read-Host -Prompt “Nhap thoi gian can hien thi o day” 
+$Session          =       “*”
+$ComputerName     =       $ComputerName -split ‘,’
+if ($ComputerName -match “:”)
+
+                      {
+                      $Path = $ComputerName
+                      $ComputerName = Get-Content $path
+          }
+                      $Total = $ComputerName.count 
+                                foreach ($Computer in $ComputerName )
+                                                {               $NetTestPC = Test-NetConnection -ComputerName $Computer -port 445 -ErrorVariable a
+                                                             	If ($NetTestPC.TcpTestSucceeded)				 
+                                {
+                                                                Write-Host “Kiem tra ket noi toi $Computer…….” -ForegroundColor yellow
+																Write-Host “Ket noi thanh cong toi may tinh: $Computer” -ForegroundColor Green
+                                msg $Session /Server:$Computer /Time:$Time $Message
+                                                                }
+                                                                else
+                                                                                {
+                                                                                                Write-Host “Loi ket noi den May tinh: $Computer - $a” -ForegroundColor red
+                                                                                }
+
+                                                }
+
+        $End_Time   =    Get-Date -Format T
+        $Minute = (New-TimeSpan -Start $Start_Time -End $End_Time).Minutes
+        $Second = (New-TimeSpan -Start $Start_Time -End $End_Time).Seconds
+        Write-Host Start at $Start_Time, End At $End_Time, Took About $Minute Minutes $seconds Seconds
+        Write-Host “Total $Total Computer Processed” -ForegroundColor white
+Read-Host -Prompt "Press any key to continue"
+Exit
