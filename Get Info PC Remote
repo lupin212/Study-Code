@@ -1,0 +1,9 @@
+Get-Content InventoryListOfServerNames.txt |
+    Foreach-Object{
+        $x = Get-CimInstance -ComputerName $_ -ClassName win32_operatingsystem
+        $y = Get-CimInstance -ComputerName $_-ClassName win32_logicaldisk -Filter "DriveType = 3"
+        # fill in name/data pairs as needed
+        [PSCustomObject]@{
+            Name = Value
+        }
+    }
