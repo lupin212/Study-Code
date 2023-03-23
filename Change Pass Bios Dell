@@ -1,0 +1,12 @@
+Verifying Admin/System password
+    Get-Item -Path DellSmbios:\Security\IsAdminPasswordSet
+    Get-Item -Path DellSmbios:\Security\IsSystemPasswordSet
+Setting Admin/System password
+    Set-Item -Path DellSmbios:\Security\AdminPassword "$AdminPwd"
+    Set-Item -Path DellSmbios:\Security\SystemPassword "$SystemPwd"
+Modifying Admin/System password
+    Set-Item -Path DellSmbios:\Security\AdminPassword "$NewAdminPwd" -Password "$OldAdminPwd"
+    Set-Item -Path DellSmbios:\Security\SystemPassword "$NewSystemPwd" -Password "$OldSystemPwd"
+Clearing Admin/System password
+    Set-Item -Path DellSmbios:\Security\AdminPassword "" -Password "$OldAdminPwd"
+    Set-Item -Path DellSmbios:\Security\SystemPassword "" -Password "$OldSystemPwd"
