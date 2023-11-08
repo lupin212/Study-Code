@@ -1,0 +1,30 @@
+num_list = [1, 2, 3, 10]
+float_list = [2.9, 3.9, 4.6]
+boo_list = [True, False]
+string_list = ['JavaScript', 'Python', 'freeCodeCamp']
+
+
+mixed_list = ['freeCodeCamp', 1, 1.1, True]
+sports_list = ["Football", "Basketball", "Baseball", "Tennis"]
+new_sport = input("Please add a new sport: ")
+sports_list.append(new_sport)
+
+print(sports_list)
+
+sports_list = ["Football", "Basketball", "Baseball", "Tennis"]
+sports_list.insert(0, "Athletics")
+print(sports_list)
+
+# Output: ['Athletics', 'Football', 'Basketball', 'Baseball', 'Tennis']
+
+sports_list = ["Football", "Basketball", "Baseball", "Tennis"]
+
+# add another list
+sports_list.extend(["Golf", "Boxing"])
+
+# Append a tuple
+sports_list.extend(("Netball", "TT"))
+
+print(sports_list)
+
+# Output: ['Football', 'Basketball', 'Baseball', 'Tennis', 'Golf', 'Boxing', 'Netball', ‘TT']
