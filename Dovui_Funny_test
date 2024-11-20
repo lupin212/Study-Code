@@ -1,0 +1,43 @@
+// function to display question to the user
+void displayQuestion(Question q)
+{
+    printf("%s\n", q.question);
+    for (int i = 0; i < 4; i++) {
+        printf("%d. %s\n", i + 1, q.options[i]);
+    }
+}
+ 
+// function to check the answer
+int checkAnswer(Question q, int user_answer)
+{
+    return (user_answer == q.correct_option);
+}
+ 
+// driver code
+int main()
+{
+ 
+    // random number generator
+    srand(time(NULL));
+ 
+    // Initializing questions, options and the correct
+    // answer
+    Question original_questions[MAX_QUESTIONS] = {
+        { "Which bird lays the largest egg?",
+          { "Owl", "Ostrich", "Kingfisher", "Woodpecker" },
+          2 },
+        { "How many legs does a spider have?",
+          { "7", "8", "6", "5" },
+          2 },
+        { "Where does the President of the United States "
+          "live while in office?",
+          { "The White House", "The Parliament",
+            "House of Commons", "Washington DC" },
+          1 },
+        { "Which state is famous for Hollywood?",
+          { "Sydney", "California", "New York", "Paris" },
+          2 },
+        { "What is a group of lions called?",
+          { "Drift", "Pride", "Flock", "Drove" },
+          2 }
+    };
